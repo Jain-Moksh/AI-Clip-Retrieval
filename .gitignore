@@ -1,7 +1,7 @@
 .env
+.venv
 *.egg-info
 .vscode
-.env
 __pycache__
 myimglist.txt
 .ipynb_checkpoints
@@ -12,3 +12,11 @@ cat
 embedding_folder
 index_folder
 indices_paths.json
+.coverage*
+test_folder
+build
+dist
+wandb
+.pexing
+*.tgz
+*.pex
