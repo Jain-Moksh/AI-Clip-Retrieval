@@ -1,4 +1,5 @@
-# clip-retrieval
+# clip-retrieval — Moksh Jain
+
 [![pypi](https://img.shields.io/pypi/v/clip-retrieval.svg)](https://pypi.python.org/pypi/clip-retrieval)
 [![NPM version](https://badge.fury.io/js/clip-retrieval-front.svg)](http://badge.fury.io/js/clip-retrieval-front)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rom1504/clip-retrieval/blob/master/notebook/clip-retrieval-getting-started.ipynb)
@@ -7,13 +8,13 @@
 
 Easily compute clip embeddings and build a clip retrieval system with them. 100M text+image embeddings can be processed in 20h using a 3080.
 
-* clip client allows remote querying of backend via python. [clip-client notebook](https://colab.research.google.com/github/rom1504/clip-retrieval/blob/master/notebook/clip-client-query-api.ipynb)
-* clip inference allows you to quickly (1500 sample/s on a 3080) compute image and text embeddings
-* clip index builds efficient indices out of the embeddings
-* clip filter allows you to filter out the data using the clip index
-* clip back hosts the indices with a simple flask service
-* clip front is a simple ui querying the back. Check it out at [clip-retrieval ui](https://rom1504.github.io/clip-retrieval/)
-* clip end2end runs img2dataset, inference, index then back and front to make all of this easier to begin with
+- clip client allows remote querying of backend via python. [clip-client notebook](https://colab.research.google.com/github/rom1504/clip-retrieval/blob/master/notebook/clip-client-query-api.ipynb)
+- clip inference allows you to quickly (1500 sample/s on a 3080) compute image and text embeddings
+- clip index builds efficient indices out of the embeddings
+- clip filter allows you to filter out the data using the clip index
+- clip back hosts the indices with a simple flask service
+- clip front is a simple ui querying the back. Check it out at [clip-retrieval ui](https://rom1504.github.io/clip-retrieval/)
+- clip end2end runs img2dataset, inference, index then back and front to make all of this easier to begin with
 
 End to end this make it possible to build a simple semantic search system.
 Interested to learn about semantic search in general ? You can read my [medium post](https://rom1504.medium.com/semantic-search-with-embeddings-index-anything-8fb18556443c) on the topic.
@@ -26,17 +27,17 @@ If you believe in making reusable tools to make data easy to use for ML and you 
 
 ## Related projects
 
-* [all_clip](https://github.com/rom1504/all_clip) to load any clip model
-* [img2dataset](https://github.com/rom1504/img2dataset) to download images from urls
-* [open_clip](https://github.com/mlfoundations/open_clip) to train clip models
-* [CLIP_benchmark](https://github.com/LAION-AI/CLIP_benchmark) to evaluate clip models
+- [all_clip](https://github.com/rom1504/all_clip) to load any clip model
+- [img2dataset](https://github.com/rom1504/img2dataset) to download images from urls
+- [open_clip](https://github.com/mlfoundations/open_clip) to train clip models
+- [CLIP_benchmark](https://github.com/LAION-AI/CLIP_benchmark) to evaluate clip models
 
 ## Who is using clip retrieval ?
 
-* [cah-prepro](https://github.com/rom1504/cah-prepro) preprocess the 400M image+text crawling at home dataset. clip-retrieval is used to compute 400M clip embeddings and the indices
-* [autofaiss](https://github.com/criteo/autofaiss) uses clip-retrieval to display an example of use (see the multimodal notebook example there)
-* [afiaka87 openai demo](https://gist.github.com/afiaka87/f662486fc45199fa4394f3456c8246d7#file-dalle_blog_semantic_search-ipynb) shows how to look among the 1M example released by openai for their DALL-E demo
-* [antarctic-captions by dzryk](https://github.com/dzryk/antarctic-captions) uses autofaiss and clip inference as a way to generate anchors for the image to text task with great success
+- [cah-prepro](https://github.com/rom1504/cah-prepro) preprocess the 400M image+text crawling at home dataset. clip-retrieval is used to compute 400M clip embeddings and the indices
+- [autofaiss](https://github.com/criteo/autofaiss) uses clip-retrieval to display an example of use (see the multimodal notebook example there)
+- [afiaka87 openai demo](https://gist.github.com/afiaka87/f662486fc45199fa4394f3456c8246d7#file-dalle_blog_semantic_search-ipynb) shows how to look among the 1M example released by openai for their DALL-E demo
+- [antarctic-captions by dzryk](https://github.com/dzryk/antarctic-captions) uses autofaiss and clip inference as a way to generate anchors for the image to text task with great success
 
 ## Install
 
@@ -54,18 +55,19 @@ See [`ClipClient` - Getting Started Notebook](/notebook/clip-client-query-api.ip
 
 During initialization you can specify a few parameters:
 
-* `backend_url`: the url of the backend. (required)
-* `indice_name`: specify the name of the index you want to use. (required)
-* `aesthetic_score`: the aesthetic score as rated by [aesthetic-predictor](https://github.com/LAION-AI/aesthetic-predictor). Default is `9`.
-* `use_mclip`: whether to use a multi-lingual version of CLIP. Default is `False`.
-* `aesthetic_weight`: the weight of the aesthetic score. Default is `0.5`
-* `modality`: search over image or text in the index, one of `Multimodal.IMAGE` or `Multimodal.TEXT`. Default is `Multimodal.IMAGE`.
-* `num_images`: the number of images to return from the API. Default is `40`.
-* `deduplicate`: Whether to deduplicate the result by image embedding. Default is true.
-* `use_safety_model`: Whether to remove unsafe images. Default is true.
-* `use_violence_detector`: Whether to remove images with violence. Default is true.
+- `backend_url`: the url of the backend. (required)
+- `indice_name`: specify the name of the index you want to use. (required)
+- `aesthetic_score`: the aesthetic score as rated by [aesthetic-predictor](https://github.com/LAION-AI/aesthetic-predictor). Default is `9`.
+- `use_mclip`: whether to use a multi-lingual version of CLIP. Default is `False`.
+- `aesthetic_weight`: the weight of the aesthetic score. Default is `0.5`
+- `modality`: search over image or text in the index, one of `Multimodal.IMAGE` or `Multimodal.TEXT`. Default is `Multimodal.IMAGE`.
+- `num_images`: the number of images to return from the API. Default is `40`.
+- `deduplicate`: Whether to deduplicate the result by image embedding. Default is true.
+- `use_safety_model`: Whether to remove unsafe images. Default is true.
+- `use_violence_detector`: Whether to remove images with violence. Default is true.
 
 For instance, to query the hosted backend for Laion5B with the default parameters:
+
 ```python
 from clip_retrieval.clip_client import ClipClient, Modality
 
@@ -84,7 +86,7 @@ results[0]
 
 ### Query by image
 
-You can also find captioned images similar to the image you provide.  Images can be passed via local path or url.
+You can also find captioned images similar to the image you provide. Images can be passed via local path or url.
 
 ```python
 cat_results = client.query(image="cat.jpg")
@@ -135,10 +137,10 @@ Then go to [http://localhost:1234](http://localhost:1234) and enjoy searching am
 
 Use `--run_back False` if you don't want to run the backend
 
-
 ## clip inference
 
 Get some images in an `example_folder`, for example by doing:
+
 ```
 pip install img2dataset
 echo 'https://placekitten.com/200/305' >> myimglist.txt
@@ -146,17 +148,19 @@ echo 'https://placekitten.com/200/304' >> myimglist.txt
 echo 'https://placekitten.com/200/303' >> myimglist.txt
 img2dataset --url_list=myimglist.txt --output_folder=image_folder --thread_count=64 --image_size=256
 ```
+
 You can also put text files with the same names as the images in that folder, to get the text embeddings.
 
 Then run `clip-retrieval inference --input_dataset image_folder --output_folder embeddings_folder`
 
 Output folder will contain:
-* img_emb/
-    * img_emb_0.npy containing the image embeddings as numpy
-* text_emb/
-    * text_emb_0.npy containing the text embeddings as numpy
-* metadata/
-    * metadata_0.parquet containing the image paths, captions and metadata
+
+- img_emb/
+  - img_emb_0.npy containing the image embeddings as numpy
+- text_emb/
+  - text_emb_0.npy containing the text embeddings as numpy
+- metadata/
+  - metadata_0.parquet containing the image paths, captions and metadata
 
 This scales to million of samples. At 1400 sample/s of a 3080, 10M samples can be processed in 2h.
 
@@ -164,37 +168,37 @@ This scales to million of samples. At 1400 sample/s of a 3080, 10M samples can b
 
 clip_inference turn a set of text+image into clip embeddings
 
-* **input_dataset** Path to input dataset. Folder if input_format is files. Bash brace pattern such as "{000..150}.tar" (see https://pypi.org/project/braceexpand/) if webdataset (*required*)
-* **output_folder** Folder where the clip embeddings will be saved, as well as metadata (*required*)
-* **input_format** files or webdataset (default *files*)
-* **cache_path** cache path for webdataset (default *None*)
-* **batch_size** Number of items to do the inference on at once (default *256*)
-* **num_prepro_workers** Number of processes to do the preprocessing (default *8*)
-* **enable_text** Enable text processing (default *True*)
-* **enable_image** Enable image processing (default *True*)
-* **enable_metadata** Enable metadata processing (default *False*)
-* **write_batch_size** Write batch size (default *10**6*)
-* **wds_image_key** Key to use for images in webdataset. (default *jpg*)
-* **wds_caption_key** Key to use for captions in webdataset. (default *txt*)
-* **clip_model** CLIP model to load (default *ViT-B/32*). Specify it as `"open_clip:ViT-B-32/laion2b_s34b_b79k"` to use the [open_clip](https://github.com/mlfoundations/open_clip) or `"hf_clip:patrickjohncyh/fashion-clip"` to use the [hugging face](https://huggingface.co/docs/transformers/model_doc/clip) clip model.
-* **mclip_model** MCLIP model to load (default *sentence-transformers/clip-ViT-B-32-multilingual-v1*)
-* **use_mclip** If False it performs the inference using CLIP; MCLIP otherwise (default *False*)
-* **use_jit** uses jit for the clip model (default *True*)
-* **distribution_strategy** choose how to distribute the job, see distribution section for details (default *sequential*)
-* **wds_number_file_per_input_file** estimation of the number of sample per tar if using wds and not specifying output_partition_count (default *10000*)
-* **output_partition_count** number of output partitions (default *None*)
-* **wandb_project** wandb project to use (default *clip_retrieval*)
-* **enable_wandb** whether to use wandb (default *False*)
-* **clip_cache_path** cache path for clip (default *None*)
-* **slurm_job_name**, the job name to use in slurm. (default *None*)
-* **slurm_partition** (default *None*), the slurm partition to create a job in.
-* **slurm_jobs**, the number of jobs to create in slurm. (default *None*)
-* **slurm_job_comment**, the job comment to use. (default *None*)
-* **slurm_nodelist**, a list of specific nodes to use .(default *None*)
-* **slurm_exclude**, a list of nodes to exclude when creating jobs. (default *None*)
-* **slurm_job_timeout**, if not supplied it will default to 2 weeks. (default *None*)
-* **slurm_cache_path**, cache path to use for slurm-related tasks. (default *None*)
-* **slurm_verbose_wait=False**, wether to print the status of your slurm job (default *False*)
+- **input_dataset** Path to input dataset. Folder if input*format is files. Bash brace pattern such as "{000..150}.tar" (see https://pypi.org/project/braceexpand/) if webdataset (\_required*)
+- **output_folder** Folder where the clip embeddings will be saved, as well as metadata (_required_)
+- **input_format** files or webdataset (default _files_)
+- **cache_path** cache path for webdataset (default _None_)
+- **batch_size** Number of items to do the inference on at once (default _256_)
+- **num_prepro_workers** Number of processes to do the preprocessing (default _8_)
+- **enable_text** Enable text processing (default _True_)
+- **enable_image** Enable image processing (default _True_)
+- **enable_metadata** Enable metadata processing (default _False_)
+- **write_batch_size** Write batch size (default _10\*\*6_)
+- **wds_image_key** Key to use for images in webdataset. (default _jpg_)
+- **wds_caption_key** Key to use for captions in webdataset. (default _txt_)
+- **clip_model** CLIP model to load (default _ViT-B/32_). Specify it as `"open_clip:ViT-B-32/laion2b_s34b_b79k"` to use the [open_clip](https://github.com/mlfoundations/open_clip) or `"hf_clip:patrickjohncyh/fashion-clip"` to use the [hugging face](https://huggingface.co/docs/transformers/model_doc/clip) clip model.
+- **mclip_model** MCLIP model to load (default _sentence-transformers/clip-ViT-B-32-multilingual-v1_)
+- **use_mclip** If False it performs the inference using CLIP; MCLIP otherwise (default _False_)
+- **use_jit** uses jit for the clip model (default _True_)
+- **distribution_strategy** choose how to distribute the job, see distribution section for details (default _sequential_)
+- **wds_number_file_per_input_file** estimation of the number of sample per tar if using wds and not specifying output*partition_count (default \_10000*)
+- **output_partition_count** number of output partitions (default _None_)
+- **wandb_project** wandb project to use (default _clip_retrieval_)
+- **enable_wandb** whether to use wandb (default _False_)
+- **clip_cache_path** cache path for clip (default _None_)
+- **slurm_job_name**, the job name to use in slurm. (default _None_)
+- **slurm_partition** (default _None_), the slurm partition to create a job in.
+- **slurm_jobs**, the number of jobs to create in slurm. (default _None_)
+- **slurm_job_comment**, the job comment to use. (default _None_)
+- **slurm_nodelist**, a list of specific nodes to use .(default _None_)
+- **slurm_exclude**, a list of nodes to exclude when creating jobs. (default _None_)
+- **slurm_job_timeout**, if not supplied it will default to 2 weeks. (default _None_)
+- **slurm_cache_path**, cache path to use for slurm-related tasks. (default _None_)
+- **slurm_verbose_wait=False**, wether to print the status of your slurm job (default _False_)
 
 #### DeepSparse Backend
 
@@ -221,36 +225,33 @@ To manually compute the number of tasks, use the following formula: `number_samp
 
 The API is very similar to `clip-retrieval inference` with some minor changes:
 
-* **tasks** A list of integers representing the `partition_id`'s that this worker is responsible for computing. (*required*)
-* **input_dataset** Path to input dataset. Folder if input_format is files. Bash brace pattern such as "{000..150}.tar" (see https://pypi.org/project/braceexpand/) if webdataset (*required*)
-* **output_folder** Folder where the clip embeddings will be saved, as well as metadata (*required*)
-* **output_partition_count** number of output partitions (*required*)
-* **input_format** files or webdataset (default *files*)
-* **cache_path** cache path for webdataset (default *None*)
-* **batch_size** Number of items to do the inference on at once (default *256*)
-* **num_prepro_workers** Number of processes to do the preprocessing (default *8*)
-* **enable_text** Enable text processing (default *True*)
-* **enable_image** Enable image processing (default *True*)
-* **enable_metadata** Enable metadata processing (default *False*)
-* **wds_image_key** Key to use for images in webdataset. (default *jpg*)
-* **wds_caption_key** Key to use for captions in webdataset. (default *txt*)
-* **clip_model** CLIP model to load (default *ViT-B/32*). Specify it as `"open_clip:ViT-B-32-quickgelu"` to use the [open_clip](https://github.com/mlfoundations/open_clip) or `"hf_clip:patrickjohncyh/fashion-clip"` to use the [hugging face](https://huggingface.co/docs/transformers/model_doc/clip) clip model.
-* **mclip_model** MCLIP model to load (default *sentence-transformers/clip-ViT-B-32-multilingual-v1*)
-* **use_mclip** If False it performs the inference using CLIP; MCLIP otherwise (default *False*)
-* **use_jit** uses jit for the clip model (default *True*)
-* **wandb_project** wandb project to use (default *clip_retrieval*)
-* **enable_wandb** whether to use wandb (default *False*)
-* **clip_cache_path** cache path for clip (default *None*)
+- **tasks** A list of integers representing the `partition_id`'s that this worker is responsible for computing. (_required_)
+- **input_dataset** Path to input dataset. Folder if input*format is files. Bash brace pattern such as "{000..150}.tar" (see https://pypi.org/project/braceexpand/) if webdataset (\_required*)
+- **output_folder** Folder where the clip embeddings will be saved, as well as metadata (_required_)
+- **output_partition_count** number of output partitions (_required_)
+- **input_format** files or webdataset (default _files_)
+- **cache_path** cache path for webdataset (default _None_)
+- **batch_size** Number of items to do the inference on at once (default _256_)
+- **num_prepro_workers** Number of processes to do the preprocessing (default _8_)
+- **enable_text** Enable text processing (default _True_)
+- **enable_image** Enable image processing (default _True_)
+- **enable_metadata** Enable metadata processing (default _False_)
+- **wds_image_key** Key to use for images in webdataset. (default _jpg_)
+- **wds_caption_key** Key to use for captions in webdataset. (default _txt_)
+- **clip_model** CLIP model to load (default _ViT-B/32_). Specify it as `"open_clip:ViT-B-32-quickgelu"` to use the [open_clip](https://github.com/mlfoundations/open_clip) or `"hf_clip:patrickjohncyh/fashion-clip"` to use the [hugging face](https://huggingface.co/docs/transformers/model_doc/clip) clip model.
+- **mclip_model** MCLIP model to load (default _sentence-transformers/clip-ViT-B-32-multilingual-v1_)
+- **use_mclip** If False it performs the inference using CLIP; MCLIP otherwise (default _False_)
+- **use_jit** uses jit for the clip model (default _True_)
+- **wandb_project** wandb project to use (default _clip_retrieval_)
+- **enable_wandb** whether to use wandb (default _False_)
+- **clip_cache_path** cache path for clip (default _None_)
 
-> ***Note***: The worker does not accept the following arguments
-> * **write_batch_size** Write batch size (default *10**6*)
-> * **distribution_strategy** choose how to distribute the job, see distribution section for details (default *sequential*)
-> * **wds_number_file_per_input_file** estimation of the number of sample per tar if using wds and not specifying output_partition_count (default *10000*)
-> * **any of the SLURM arguments**
-
-
-
-
+> **_Note_**: The worker does not accept the following arguments
+>
+> - **write_batch_size** Write batch size (default _10\*\*6_)
+> - **distribution_strategy** choose how to distribute the job, see distribution section for details (default _sequential_)
+> - **wds_number_file_per_input_file** estimation of the number of sample per tar if using wds and not specifying output*partition_count (default \_10000*)
+> - **any of the SLURM arguments**
 
 ### Loading/writing files on hdfs
 
@@ -274,17 +275,18 @@ Clip index takes as input the output of clip inference and makes an index out of
 
 `clip-retrieval index --embeddings_folder embeddings_folder --index_folder index_folder`
 
-* `--max_index_memory_usage "16G"` option allow configuring the amount of ram the index will consume. More ram, better knn recall (Default `4G`).
-* `--current_memory_available 24G` allows controlling how much ram is used during the creation process (Default `16G`).
-* `--image_subfolder "img_emb"` allows to specify a subfolder for the image embeddings which is concatenated to the `--embeddings_folder` option (Default `img_emb`).
-* `--text_subfolder "text_emb"` allows to specify a subfolder for the text embeddings which is concatenated to the `--embeddings_folder` option (Default `text_emb`).
-* `--copy_metadata True` makes it possible to choose whether to copy metadata or not at the end of the process (Default `True`).
-* `--nb_cores 8` allows controlling the number of threads (Default `None`, which will use all cores).
+- `--max_index_memory_usage "16G"` option allow configuring the amount of ram the index will consume. More ram, better knn recall (Default `4G`).
+- `--current_memory_available 24G` allows controlling how much ram is used during the creation process (Default `16G`).
+- `--image_subfolder "img_emb"` allows to specify a subfolder for the image embeddings which is concatenated to the `--embeddings_folder` option (Default `img_emb`).
+- `--text_subfolder "text_emb"` allows to specify a subfolder for the text embeddings which is concatenated to the `--embeddings_folder` option (Default `text_emb`).
+- `--copy_metadata True` makes it possible to choose whether to copy metadata or not at the end of the process (Default `True`).
+- `--nb_cores 8` allows controlling the number of threads (Default `None`, which will use all cores).
 
 The output is a folder containing:
-* image.index containing a faiss index for images
-* text.index containing a faiss index for texts
-* metadata folder containing the parquet metadata
+
+- image.index containing a faiss index for images
+- text.index containing a faiss index for texts
+- metadata folder containing the parquet metadata
 
 Thanks to autofaiss and faiss, this scales to hundred of million of samples in a few hours.
 
@@ -307,62 +309,66 @@ This scripts works for small datasets. For larger ones, please check [notebook/s
 Clip back is a simple knn service backend. If using both hdf5 and faiss memory mapping, it uses only the memory used by clip which is 4GB.
 
 Run (output_folder is the output of clip index)
+
 ```bash
 echo '{"example_index": "output_folder"}' > indices_paths.json
 clip-retrieval back --port 1234 --indices-paths indices_paths.json
 ```
 
-
 Options:
-* `--use_jit True` uses jit for the clip model
-* `--clip_model "ViT-B/32"` allows choosing the clip model to use. Prefix with `"open_clip:"` to use an [open_clip](https://github.com/mlfoundations/open_clip) model.
-* `--enable_mclip_option True` loads the mclip model, making it possible to search in any language.
-* `--columns_to_return='["url", "image_path", "caption", "NSFW"]` allows you to specify which columns should be fetched from the metadata and returned by the backend. It's useful to specify less in case of hdf5 caching to speed up the queries.
-* `--enable_faiss_memory_mapping=True` option can be passed to use an index with memory mapping.
-That decreases the memory usage to zero.
-* `--enable_hdf5 True` option can be passed to enable hdf5 caching for the metadata.
-HDF5 caching makes it possible to use the metadata with almost no memory usage.
-* `--use_arrow True` allows using arrow instead of hdf5. Should be used along with [clip_back_prepro](clip_back_prepro) for very large datasets (billions)
-* `--reorder_metadata_by_ivf_index True` option takes advantage of the data locality property of results of a knn ivf indices: it orders the metadata collection in order of the IVF clusters. That makes it possible to have much faster metadata retrieval as the reads are then accessing a few mostly sequential parts of the metadata instead of many non sequential parts. In practice that means being able to retrieve 1M items in 1s whereas only 1000 items can be retrieved in 1s without this method. This will order the metadata using the first image index.
-* `--provide_safety_model True` will automatically download and load a [safety model](https://github.com/LAION-AI/CLIP-based-NSFW-Detector). You need to `pip install autokeras` optional dependency for this to work.
-* `--provide_violence_detector True` will load a [violence detector](https://github.com/ml-research/OffImgDetectionCLIP), [paper](https://arxiv.org/abs/2202.06675.pdf)
-* `--provide_aesthetic_embeddings True` will load the [aesthetic embeddings](https://github.com/LAION-AI/aesthetic-predictor) and allow users to make the query move towards a nicer point of the clip space
+
+- `--use_jit True` uses jit for the clip model
+- `--clip_model "ViT-B/32"` allows choosing the clip model to use. Prefix with `"open_clip:"` to use an [open_clip](https://github.com/mlfoundations/open_clip) model.
+- `--enable_mclip_option True` loads the mclip model, making it possible to search in any language.
+- `--columns_to_return='["url", "image_path", "caption", "NSFW"]` allows you to specify which columns should be fetched from the metadata and returned by the backend. It's useful to specify less in case of hdf5 caching to speed up the queries.
+- `--enable_faiss_memory_mapping=True` option can be passed to use an index with memory mapping.
+  That decreases the memory usage to zero.
+- `--enable_hdf5 True` option can be passed to enable hdf5 caching for the metadata.
+  HDF5 caching makes it possible to use the metadata with almost no memory usage.
+- `--use_arrow True` allows using arrow instead of hdf5. Should be used along with [clip_back_prepro](clip_back_prepro) for very large datasets (billions)
+- `--reorder_metadata_by_ivf_index True` option takes advantage of the data locality property of results of a knn ivf indices: it orders the metadata collection in order of the IVF clusters. That makes it possible to have much faster metadata retrieval as the reads are then accessing a few mostly sequential parts of the metadata instead of many non sequential parts. In practice that means being able to retrieve 1M items in 1s whereas only 1000 items can be retrieved in 1s without this method. This will order the metadata using the first image index.
+- `--provide_safety_model True` will automatically download and load a [safety model](https://github.com/LAION-AI/CLIP-based-NSFW-Detector). You need to `pip install autokeras` optional dependency for this to work.
+- `--provide_violence_detector True` will load a [violence detector](https://github.com/ml-research/OffImgDetectionCLIP), [paper](https://arxiv.org/abs/2202.06675.pdf)
+- `--provide_aesthetic_embeddings True` will load the [aesthetic embeddings](https://github.com/LAION-AI/aesthetic-predictor) and allow users to make the query move towards a nicer point of the clip space
 
 These options can also be provided in the config file to have different options for each index. Example:
+
 ```json
 {
-        "laion5B": {
-                "indice_folder": "/mnt/laion5B/prepared_data",
-                "provide_safety_model": true,
-                "enable_faiss_memory_mapping": true,
-                "use_arrow": true,
-                "enable_hdf5": false,
-                "reorder_metadata_by_ivf_index": false,
-                "columns_to_return": ["url", "caption"],
-                "clip_model": "ViT-L/14",
-                "enable_mclip_option": false
-        },
-        "laion_400m": {
-                "indice_folder": "/mnt/laion400M/index100",
-                "provide_safety_model": true,
-                "enable_faiss_memory_mapping": true,
-                "enable_hdf5": true,
-                "use_arrow": false,
-                "reorder_metadata_by_ivf_index": true,
-                "enable_mclip_option": true,
-                "clip_model": "ViT-B/32"
-        }
+  "laion5B": {
+    "indice_folder": "/mnt/laion5B/prepared_data",
+    "provide_safety_model": true,
+    "enable_faiss_memory_mapping": true,
+    "use_arrow": true,
+    "enable_hdf5": false,
+    "reorder_metadata_by_ivf_index": false,
+    "columns_to_return": ["url", "caption"],
+    "clip_model": "ViT-L/14",
+    "enable_mclip_option": false
+  },
+  "laion_400m": {
+    "indice_folder": "/mnt/laion400M/index100",
+    "provide_safety_model": true,
+    "enable_faiss_memory_mapping": true,
+    "enable_hdf5": true,
+    "use_arrow": false,
+    "reorder_metadata_by_ivf_index": true,
+    "enable_mclip_option": true,
+    "clip_model": "ViT-B/32"
+  }
 }
 ```
 
 hdf5 or arrow caching is a good idea to use if:
-* you do not have enough ram to load the metadata in memory
-* your disk is fast (ie you have a ssd)
+
+- you do not have enough ram to load the metadata in memory
+- your disk is fast (ie you have a ssd)
 
 At this point you have a simple flask server running on port 1234 and that can answer these queries:
 
-* `/indices-list` -> return a list of indices
-* `/knn-service` that takes as input:
+- `/indices-list` -> return a list of indices
+- `/knn-service` that takes as input:
+
 ```js
 {
     "text": "a text query",
@@ -374,32 +380,38 @@ At this point you have a simple flask server running on port 1234 and that can a
     "num_result_ids": 4 // optional, if specified fetch this number of results in total but only num_images with metadata
 }
 ```
+
 text, image and image_url are mutually exclusive
 and returns:
+
 ```js
 [
-    {
-        "image": "base 64 of an image",
-        "text": "some result text",
-        "id": 543
-    },
-    {
-        "image": "base 64 of an image",
-        "text": "some result text",
-        "id": 782
-    }
-]
+  {
+    image: "base 64 of an image",
+    text: "some result text",
+    id: 543,
+  },
+  {
+    image: "base 64 of an image",
+    text: "some result text",
+    id: 782,
+  },
+];
 ```
+
 Each object may also contain an url field if the metadata provides it.
 
 The id is the position of the item in the index. It may be used to query metadata with the /metadata endpoint:
+
 ```js
 {
     "indice_name": "example_index",
     "ids": [543, 782]
 }
 ```
+
 which returns:
+
 ```js
 {
     "image": "base 64 of an image",
@@ -425,6 +437,7 @@ This can (optionally) be used to setup a [grafana dashboard](doc_assets/grafana_
 It can be seen on this dashboard that the slowest part of any call is fetching the image by its url in case of image url search, taking up to 300ms.
 For text queries or image queries, the latency is about 50ms.
 Here is an example of output in the metrics summary:
+
 ```
 Among 20.0 calls to the knn end point with an average latency of 0.1889s per request, the step costs are (in order):
                         name                               description  calls  average proportion
@@ -443,6 +456,7 @@ Clip front is a simple UI that connects to clip back and display the results.
 You can use it at [clip-retrieval ui](https://rom1504.github.io/clip-retrieval/)
 
 Or you can run it yourself with:
+
 ```
 npm install -g clip-retrieval-front
 clip-retrieval-front 3005
@@ -467,10 +481,13 @@ pip install -e .
 ```
 
 to run tests:
+
 ```
 pip install -r requirements-test.txt
 ```
+
 then
+
 ```
 make lint
 make test
@@ -481,6 +498,7 @@ You can use `make black` to reformat the code
 `python -m pytest -x -s -v tests -k "test_runner"` to run a specific test
 
 If you want to use the front through the python backend or frontend, run
+
 ```
 cd front
 npm install
@@ -491,15 +509,11 @@ pip install -e .
 
 ## Citation
 
-```
-@misc{beaumont-2022-clip-retrieval,
-  author = {Romain Beaumont},
-  title = {Clip Retrieval: Easily compute clip embeddings and build a clip retrieval system with them},
-  year = {2022},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/rom1504/clip-retrieval}}
-}
+Project maintained and engineered by Moksh Jain
 ```
 
+---
 
+For questions or collaboration, contact me at [mokshjaindev@gmail.com](mailto:mokshjaindev@gmail.com).
+
+Copyright (c) 2026 Moksh Jain
