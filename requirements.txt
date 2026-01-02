@@ -16,7 +16,7 @@ webdataset>=0.2,<0.3
 h5py>=3.1.0,<4
 prometheus-client>=0.13.1,<1
 fsspec
-sentence-transformers>=2.2.0,<3
+sentence-transformers>=2.2.0,<6
 wandb>=0.17.0
 open-clip-torch>=2.0.0,<3.0.0
 requests>=2.28.0,<3
